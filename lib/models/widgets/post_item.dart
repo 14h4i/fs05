@@ -71,8 +71,12 @@ class _PostItemState extends State<PostItem> {
     String? tags;
     if (_tags != null && _tags!.isNotEmpty) {
       tags = '';
-      for (var element in _tags!) {
-        tags = tags! + '#$element, ';
+      for (int i = 0; i < _tags!.length; i++) {
+        if (i != _tags!.length - 1) {
+          tags = tags! + '#${_tags![i]}, ';
+        } else {
+          tags = tags! + '#${_tags![i]}';
+        }
       }
     }
     return tags;
