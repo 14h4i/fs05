@@ -11,6 +11,7 @@ class PostItem extends StatefulWidget {
     required this.caption,
     required this.createdAt,
     required this.tags,
+    this.radiusAvatar = 25,
   }) : super(key: key);
 
   final double height;
@@ -20,6 +21,7 @@ class PostItem extends StatefulWidget {
   final String? caption;
   final DateTime? createdAt;
   final List<String>? tags;
+  final double radiusAvatar;
 
   @override
   _PostItemState createState() => _PostItemState();
@@ -33,6 +35,7 @@ class _PostItemState extends State<PostItem> {
   late String? _caption;
   late DateTime? _createdAt;
   late List<String>? _tags;
+  late double _radiusAvatar;
 
   @override
   void initState() {
@@ -43,6 +46,7 @@ class _PostItemState extends State<PostItem> {
     _caption = widget.caption;
     _createdAt = widget.createdAt;
     _tags = widget.tags;
+    _radiusAvatar = widget.radiusAvatar;
     super.initState();
   }
 
@@ -100,11 +104,10 @@ class _PostItemState extends State<PostItem> {
         children: [
           //infor Widget
           SizedBox(
-            height: 50,
             child: Row(
               children: [
                 CircleAvatar(
-                  radius: 25,
+                  radius: _radiusAvatar,
                   backgroundColor: Colors.amber,
                   backgroundImage: _avatar != null
                       ? CachedNetworkImageProvider(_avatar!)

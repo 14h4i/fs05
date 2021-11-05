@@ -52,17 +52,18 @@ class _StateOfListViewPageState extends State<StateOfListViewPage> {
                                     itemBuilder: (context, index) {
                                       // print(model.posts![index].images!.first.url!);
                                       return PostItem(
-                                          fullName:
-                                              model.posts![index].fullName,
-                                          caption:
-                                              model.posts![index].description,
-                                          avatar: model.posts![index].avatar,
-                                          tags: model.posts![index].tags,
-                                          createdAt:
-                                              model.posts![index].createdAt!,
-                                          height: size.height * 0.5,
-                                          url: model.posts![index].images!.first
-                                              .url!);
+                                        fullName: model.posts![index].fullName,
+                                        caption:
+                                            model.posts![index].description,
+                                        avatar: model.posts![index].avatar,
+                                        tags: model.posts![index].tags,
+                                        createdAt:
+                                            model.posts![index].createdAt!,
+                                        height: size.height * 0.5,
+                                        url: model
+                                            .posts![index].images!.first.url!,
+                                        radiusAvatar: 24,
+                                      );
                                     }),
                       );
               })),
